@@ -1,18 +1,16 @@
 % =============================================================================
 %  text/APPENDIX/figures.tex
-%  Appendix figures. Two workflows are demonstrated:
-%    1) A compiled PDF placed in pics/ and included with \includegraphics.
-%    2) A standalone TikZ source in pic-tex/ compiled separately to PDF.
-%  附录图片：演示两种图片工作流（预编译 PDF 与 TikZ 独立编译）。
+%  Appendix figures. All figures live in figures/, one subfolder per figure,
+%  containing the standalone TikZ source and its compiled PDF (same name).
+%  External figures (from software, screenshots, ...) are placed the same
+%  way: just drop the PDF in a subfolder (no source file needed).
+%  附录图片。所有图片统一放在 figures/ 目录，每图一个子文件夹，
+%  内含独立 TikZ 源与同名编译 PDF；外部图片直接放入子文件夹的 PDF 即可。
 % =============================================================================
 
-% ---- Workflow 1: pre-compiled PDF in pics/ ----
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.9\textwidth]{example-figure.pdf}
-  \caption{An Example Figure from pics/ (Placeholder)}
+  \includegraphics[width=0.9\textwidth]{example-figure/example-figure.pdf}
+  \caption{An Example Figure from figures/ (Placeholder)}
   \label{fig:appendix-figure-1}
 \end{figure}
-
-% ---- Workflow 2: TikZ source compiled to PDF in pic-tex/ ----
-\input{pic-tex/example-tikz/example-tikz}

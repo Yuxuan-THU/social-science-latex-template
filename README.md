@@ -1,4 +1,4 @@
-# Political Science LaTeX Template (English–Chinese Bilingual)
+﻿# Political Science LaTeX Template (English–Chinese Bilingual)
 
 A clean, reproducible LaTeX template for political science manuscripts,
 derived from a real working paper project. English-first, with full Chinese
@@ -13,8 +13,9 @@ derived from a real working paper project. English-first, with full Chinese
 - **Times-like fonts** — `newtxtext` / `newtxmath` for text and math.
 - **Publication-quality tables** — `booktabs`, `threeparttable`, `makecell`,
   `adjustbox` (auto-fit wide tables).
-- **Figures with a reproducible workflow** — each figure has a standalone
-  TikZ source (`pic-tex/`), compiled to PDF, and included in the paper.
+- **Figures with a reproducible workflow** — every figure lives in its own
+  subfolder under `figures/` (standalone TikZ source + compiled PDF, same
+  name), and is included directly with `\includegraphics`.
 - **Author–year citations** — `natbib` with a Harvard style
   (`aeaown.bst`, AEA style).
 - **Math & theorems** — `amsmath`, `amssymb`, `amsthm` environments
@@ -74,16 +75,15 @@ latexmk -xelatex main.tex
 │   ├── introduction.tex
 │   ├── conclusion.tex
 │   ├── THE ARGUMENT/            # theory sections
-│   ├── HISTORICAL BACKGROUND/   # case background sections
+│   ├── HISTORICAL BACKGROUND/   # background sections
 │   ├── RESEARCH DESIGN/         # data & methods sections
 │   ├── RESULTS/                 # results & robustness sections
 │   └── APPENDIX/                # appendix tables/figures lists
 ├── tables/                      # table files (booktabs + threeparttable)
-├── pics/                        # compiled figure PDFs
-└── pic-tex/                     # standalone TikZ sources + figure wrappers
-    └── example-tikz/
-        ├── example-tikz-source.tex   # standalone TikZ source (compile to PDF)
-        └── example-tikz.tex          # figure wrapper (included in paper)
+└── figures/                     # figure files: one subfolder per figure,
+    └── example-figure/          #   containing the standalone TikZ source
+        ├── example-figure.tex   #   and its compiled PDF (same name)
+        └── example-figure.pdf
 ```
 
 ## How to customize
@@ -94,9 +94,13 @@ latexmk -xelatex main.tex
    `\subsection` entries in `main.tex` and keep one file per section.
 3. **Tables** — put table files in `tables/` and `\input` them from
    `text/APPENDIX/tables.tex` (or directly in a section).
-4. **Figures** — copy `pic-tex/example-tikz/`, edit the TikZ source, compile
-   it to PDF, and include it. See the comments in
-   `text/APPENDIX/figures.tex` for the two supported workflows.
+4. **Figures** — every figure lives in its own subfolder under `figures/`
+   (e.g., `figures/my-figure/`). Put a standalone TikZ source
+`my-figure.tex`
+   there, compile it to `my-figure.pdf` (same name), and include it with
+   `\includegraphics{my-figure/my-figure.pdf}`. Figures produced by external
+   software (Stata/R/Python exports, screenshots) need no source file — just
+   drop the PDF in the subfolder.
 5. **CJK fonts** — edit the font block at the top of
    `A_PreambleSettings.tex`.
 6. **Bibliography** — add entries to `references.bib` and cite with
@@ -104,7 +108,7 @@ latexmk -xelatex main.tex
 
 ## Notes / tips
 
-- The placeholder content in `text/`, `tables/`, and `pic-tex/` is
+- The placeholder content in `text/`, `tables/`, and `figures/` is
   intentionally generic — replace it with your own research.
 - Paragraph indentation is set to `2em` (Chinese convention) in `main.tex`.
   For no-indent + vertical spacing style, uncomment `parskip` in
@@ -127,3 +131,4 @@ MIT — see [LICENSE](LICENSE). Feel free to use, modify, and redistribute.
 TikZ 图形、参考文献），去除了所有研究内容与个人信息，可直接作为新论文的
 起点。编译方式见上文；所有占位内容均标注了 "Placeholder / 占位" 提示，
 请替换为你自己的内容。
+
