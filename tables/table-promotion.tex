@@ -1,0 +1,59 @@
+% =============================================================================
+%  tables/table-promotion.tex
+%  Example regression table (placeholders -- replace all numbers with your
+%  own estimates). Demonstrates: booktabs, threeparttable, makecell, adjustbox.
+%  回归表示例（所有数字均为占位符，请替换为你的估计结果）。
+% =============================================================================
+
+\begin{table}[htbp]
+  \centering
+  \caption{Promotion and Network Centrality (Placeholder Estimates)}
+  \label{tab:main-promotion}
+
+  \begin{adjustbox}{max width=\textwidth}
+  \begin{threeparttable}
+  \small
+  \begin{tabular}{>{\raggedright\arraybackslash}m{4.2cm}
+                  >{\centering\arraybackslash}m{2.5cm}
+                  >{\centering\arraybackslash}m{2.5cm}
+                  >{\centering\arraybackslash}m{2.5cm}
+                  >{\centering\arraybackslash}m{2.5cm}}
+    \toprule[\heavyrulewidth]
+    & (1) & (2) & (3) & (4) \\
+    \midrule
+    \makecell[l]{Network centrality} &
+    \makecell{0.131$^{***}$ \\ (0.025)} &
+    \makecell{0.152$^{***}$ \\ (0.039)} &
+    \makecell{0.162$^{**}$ \\ (0.051)} &
+    \makecell{0.112 \\ (0.083)} \\
+    \addlinespace
+    \makecell[l]{Year of entry} &
+    &
+    &
+    \makecell{0.019 \\ (0.015)} &
+    \makecell{0.023$^{*}$ \\ (0.012)} \\
+    \addlinespace
+    \makecell[l]{Organizational experience} &
+    &
+    \makecell{0.041$^{*}$ \\ (0.022)} &
+    \makecell{0.038 \\ (0.027)} &
+    \makecell{0.033 \\ (0.029)} \\
+    \addlinespace
+    Province fixed effects & & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+    Time fixed effects & & & & $\checkmark$ \\
+    \addlinespace
+    Observations & 1,502 & 1,502 & 1,467 & 1,467 \\
+    R$^2$ & .092 & .168 & .201 & .236 \\
+    \bottomrule[\heavyrulewidth]
+  \end{tabular}
+
+  \begin{tablenotes}
+    \footnotesize
+    \item \textit{Note:} PLACEHOLDER numbers. Replace with your own
+    estimates. Robust standard errors clustered by province are in
+    parentheses. \\
+    \item $^{+}$ $p < .10$; $^{*}$ $p < .05$; $^{**}$ $p < .01$; $^{***}$ $p < .001$.
+  \end{tablenotes}
+  \end{threeparttable}
+  \end{adjustbox}
+\end{table}

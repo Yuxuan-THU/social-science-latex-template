@@ -1,0 +1,145 @@
+% =============================================================================
+%  A_PreambleSettings.tex  --  global preamble settings.
+%  Central place for fonts, margins, line spacing, tables, math, citations,
+%  and hyperlinks. Edit once; affects the whole manuscript.
+%  全局导言区设置：字体、页边距、行距、表格、数学、引用与超链接。
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+%  CJK FONTS  --  pick whatever is installed on your machine.
+%  Windows: SimSun / SimHei / FangSong ; macOS: Songti SC / Heiti SC ;
+%  Linux: Noto Serif CJK SC / Noto Sans CJK SC.
+%  IMPORTANT: set the CJK fonts BEFORE loading newtxtext/newtxmath, otherwise
+%  fontspec may report spurious "font cannot be found" errors on Windows TTC
+%  fonts. 注意：中文字体设置须在 newtx 字体之前，否则 Windows 下可能误报。
+% -----------------------------------------------------------------------------
+\IfFontExistsTF{SimSun}{%
+  \setCJKmainfont[AutoFakeBold=2.5]{SimSun}%   % fake bold for Chinese bold text
+  \setCJKsansfont{SimHei}%
+  \setCJKmonofont{FangSong}%
+}{%
+  \IfFontExistsTF{Noto Serif CJK SC}{%
+    \setCJKmainfont[AutoFakeBold=2.5]{Noto Serif CJK SC}%
+    \setCJKsansfont{Noto Sans CJK SC}%
+    \setCJKmonofont{Noto Sans Mono CJK SC}%
+  }{%
+    % Fallback: xeCJK will use the default CJK font (may produce warnings).
+  }%
+}
+
+% -----------------------------------------------------------------------------
+%  MATH  --  amsmath/amssymb/amsthm must ALL be loaded BEFORE newtxmath
+%  (newtxmath loads amsmath internally and redefines \Bbbk / \openbox).
+%  注意：amsmath、amssymb、amsthm 必须全部先于 newtxmath 加载。
+% -----------------------------------------------------------------------------
+\usepackage[tbtags]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm,verbatim}
+
+% -----------------------------------------------------------------------------
+%  FONTS  --  Times-like text and math fonts (load AFTER CJK fonts and the
+%  AMS packages)
+% -----------------------------------------------------------------------------
+\usepackage{newtxtext,newtxmath}   % Times New Roman style text & math
+
+% newtxtext sets \defaultfontfeatures{Extension=.otf, ...}, which would leak
+% into xeCJK's deferred (lazy) CJK font loads and cause spurious fontspec
+% errors. Reset it immediately. 复位默认字体特性，避免影响 xeCJK 的中文字体。
+\defaultfontfeatures{}
+
+% -----------------------------------------------------------------------------
+%  PAGE GEOMETRY & LINE SPACING
+% -----------------------------------------------------------------------------
+\RequirePackage[
+  left=1in,
+  right=1in,
+  top=1in,
+  bottom=1in,
+  headheight=0pt,
+  headsep=0pt]{geometry}
+
+\setlength{\headsep}{5pt}      % distance between header and body
+\linespread{1.35}              % 1.35x line spacing
+
+% -----------------------------------------------------------------------------
+%  LISTS
+% -----------------------------------------------------------------------------
+\RequirePackage[shortlabels,inline]{enumitem} % custom lists with inline labels
+\setlist{nolistsep}            % compact lists
+
+% -----------------------------------------------------------------------------
+%  FIGURES
+% -----------------------------------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{pics/}{pic-tex/}}   % default search paths for images
+\usepackage{subcaption}
+\captionsetup[subfigure]{width=0.8\textwidth}
+\usepackage{tikz}                  % TikZ for vector graphics
+\usetikzlibrary{calc}
+
+% -----------------------------------------------------------------------------
+%  TABLES
+% -----------------------------------------------------------------------------
+\usepackage{booktabs}              % publication-quality rules
+\usepackage{threeparttable}        % tables with notes
+\usepackage{adjustbox}             % resize wide tables (max width=\textwidth)
+\usepackage{longtable}             % tables spanning multiple pages
+\usepackage{makecell}              % multi-line cells
+
+% -----------------------------------------------------------------------------
+%  CAPTIONS
+% -----------------------------------------------------------------------------
+\RequirePackage[font=small,labelfont={bf}]{caption}
+\captionsetup{justification=centering}
+\captionsetup[table]{skip=3pt}
+\captionsetup[figure]{skip=3pt}
+
+% -----------------------------------------------------------------------------
+%  THEOREMS
+% -----------------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem{hypothesis}{Hypothesis}
+
+% -----------------------------------------------------------------------------
+%  MATH OPERATORS
+% -----------------------------------------------------------------------------
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\plim}{plim}
+
+% -----------------------------------------------------------------------------
+%  CITATIONS & BIBLIOGRAPHY
+% -----------------------------------------------------------------------------
+\usepackage[round,sort&compress]{natbib}
+\setlength{\bibsep}{2.5pt}
+\def\bibfont{\footnotesize}
+
+% -----------------------------------------------------------------------------
+%  MISC  --  pdfpages, setspace, landscape, floats
+% -----------------------------------------------------------------------------
+% NOTE: paragraph indentation is set to 2em in main.tex (standard for
+% Chinese manuscripts). If you prefer no indentation with vertical spacing
+% between paragraphs, uncomment the parskip package below and remove the
+% \setlength{\parindent}{2em} line in main.tex.
+% 注意：main.tex 中将段首缩进设为 2em（中文习惯）。若希望段落间空行、
+% 无缩进，可取消下行注释并在 main.tex 中删除缩进设置。
+% \usepackage{parskip}
+\usepackage{pdfpages}   % include PDF pages as-is
+\usepackage{setspace}   % line spacing adjustments
+\usepackage{pdflscape}  % landscape pages
+\usepackage{afterpage}  % typeset content after current page
+\usepackage{float}      % [H] placement
+\renewcommand{\abstractname}{Abstract}
+
+% -----------------------------------------------------------------------------
+%  HYPERLINKS  --  load last
+% -----------------------------------------------------------------------------
+\usepackage{hyperref}
+\RequirePackage{xcolor}
+\definecolor{winered}{rgb}{0.5,0,0}   % dark red link color
+\hypersetup{colorlinks,linkcolor={winered},citecolor={winered},urlcolor={winered}}
+\usepackage{url}

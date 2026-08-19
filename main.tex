@@ -1,0 +1,170 @@
+% =============================================================================
+%  main.tex
+%  -----------------------------------------------------------------------------
+%  A LaTeX template for political science manuscripts.
+%  English-first, with full Chinese (CJK) support via XeLaTeX + xeCJK.
+%  英文为主的学术论文 LaTeX 模板，内置中文支持（XeLaTeX + xeCJK）。
+%
+%  COMPILE (编译方式):
+%     xelatex main.tex
+%     bibtex  main        (if you use \cite / \citep / \citet)
+%     xelatex main.tex
+%     xelatex main.tex
+%
+%  Folders (目录结构):
+%     text/    -- section files (正文分节文件)
+%     tables/  -- table files    (表格文件)
+%     pics/    -- figure files   (图片文件, PDF)
+%     pic-tex/ -- TikZ source of figures (图片的 TikZ 源文件, 单独编译为 PDF)
+% =============================================================================
+
+\documentclass[12pt]{article}
+
+% ---- Fonts & CJK support (must be loaded before inputting settings) ----
+\usepackage{fontspec}   % XeLaTeX font management
+\usepackage{xeCJK}      % Chinese support
+
+% ---- General packages used by the body text ----
+\usepackage{graphicx}     % figures
+\usepackage{subcaption}   % subfigures
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{ragged2e}
+
+% ---- Global preamble settings (fonts, margins, line spacing, tables, math,
+%      citations, hyperlinks) ----
+\input{A_PreambleSettings.tex}
+
+% ---- Paragraph indentation: 2em (standard for Chinese manuscripts) ----
+\setlength{\parindent}{2em}
+
+% =============================================================================
+%  TITLE PAGE  --  REPLACE with your own title and author information.
+%  请替换为你自己的论文标题与作者信息。
+% =============================================================================
+\title{\textbf{Your Manuscript Title:\\ A Reproducible LaTeX Template for Political Science}}
+
+\author{
+  Your Name\thanks{Department, University. Email: your.name@university.edu}
+  \and
+  Co-author Name\thanks{Corresponding author. Department, University. Email: coauthor@university.edu}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% =============================================================================
+%  ABSTRACT  --  bilingual example. Keep the English version as the main text;
+%  the Chinese version below is optional and can be removed for English-only
+%  submissions. 摘要示例：英文为主，中文可选。
+% =============================================================================
+\begin{abstract}
+\input{text/abstract}
+\end{abstract}
+
+\newpage
+
+% =============================================================================
+%  MAIN TEXT  --  structure mirrors a typical political science manuscript.
+%  Each section is split into per-section files under text/.
+%  正文结构：与常见政治学论文一致，各节拆分为 text/ 下的独立文件。
+% =============================================================================
+
+\section{INTRODUCTION}
+\input{text/introduction}
+
+\section{THE ARGUMENT}
+\input{text/THE ARGUMENT/intro}
+
+\subsection{Elite--Ruler Relations and State Capacity}
+\label{sec:elite-ruler}
+\input{text/THE ARGUMENT/elite-ruler-relations}
+
+\subsection{The Dynamic Logic of the Ruler's Dilemma}
+\label{sec:ruler-dilemma}
+\input{text/THE ARGUMENT/ruler-dilemma}
+
+\subsection{A Fourfold Strategy Framework}
+\label{sec:four-strategies}
+\input{text/THE ARGUMENT/fourfold-strategy}
+
+\section{HISTORICAL BACKGROUND}
+\input{text/HISTORICAL BACKGROUND/intro}
+
+\subsection{The Case and Its Background}
+\label{sec:case-background}
+\input{text/HISTORICAL BACKGROUND/case-background}
+
+\subsection{Ruler Power Dynamics over Time}
+\label{sec:ruler-power-dynamics}
+\input{text/HISTORICAL BACKGROUND/ruler-power-dynamics}
+
+\section{RESEARCH DESIGN}
+\input{text/RESEARCH DESIGN/intro}
+
+\subsection{Sample}
+\label{sec:sample}
+\input{text/RESEARCH DESIGN/sample}
+
+\subsection{Key Explanatory Variable}
+\label{sec:key-variable}
+\input{text/RESEARCH DESIGN/key-variable}
+
+\subsection{Outcome 1: Promotion and State-Building}
+\label{sec:outcome-promotion}
+\input{text/RESEARCH DESIGN/outcome-promotion}
+
+\subsection{Outcome 2: Challenge and Purge}
+\label{sec:outcome-purge}
+\input{text/RESEARCH DESIGN/outcome-purge}
+
+\section{RESULTS}
+\input{text/RESULTS/intro}
+
+\subsection{Main Results}
+\label{sec:main-results}
+\input{text/RESULTS/main-results}
+
+\subsection{Robustness Checks}
+\label{sec:robustness}
+\input{text/RESULTS/robustness}
+
+\section{CONCLUSION}
+\label{sec:conclusion}
+\input{text/conclusion}
+
+\newpage
+
+% =============================================================================
+%  REFERENCES  --  aeaown.bst is a Harvard (author-year) style.
+% =============================================================================
+\bibliographystyle{aeaown}
+\bibliography{references}
+
+\newpage
+
+% =============================================================================
+%  APPENDIX  --  table and figure numbering restarts with B/A prefixes.
+% =============================================================================
+\appendix
+
+\section*{APPENDIX}
+\addcontentsline{toc}{section}{APPENDIX}
+
+\section{Tables}
+\label{app:tables}
+\setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+\input{text/APPENDIX/tables.tex}
+
+\section{Figures}
+\label{app:figures}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\input{text/APPENDIX/figures.tex}
+
+\end{document}

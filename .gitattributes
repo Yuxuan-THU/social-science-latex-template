@@ -1,0 +1,18 @@
+# Normalize line endings to LF in the repository
+* text=auto
+
+# LaTeX sources are text
+*.tex text
+*.bib text
+*.bst text
+*.sty text
+*.md text
+*.txt text
+*.rc text
+*.gitignore text
+*.gitattributes text
+
+# Binary files stay binary
+*.pdf binary
+*.png binary
+*.jpg binary

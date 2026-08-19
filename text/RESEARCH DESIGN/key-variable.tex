@@ -1,0 +1,28 @@
+% =============================================================================
+%  text/RESEARCH DESIGN/key-variable.tex
+%  Key explanatory variable: demonstrates an equation.
+%  核心解释变量示例。
+% =============================================================================
+
+Our key explanatory variable measures the centrality of each elite in the
+network described in Section~\ref{sec:sample}. For an elite $i$, let
+$g_{jk}$ denote the number of shortest paths between elites $j$ and $k$ in
+the network, and let $g_{jk}(i)$ denote the number of such paths that pass
+through $i$. Betweenness centrality is defined as
+
+\begin{equation}
+C_B(i) \;=\; \sum_{j \neq i \neq k}
+\frac{g_{jk}(i)}{g_{jk}} .
+\label{eq:betweenness}
+\end{equation}
+
+Intuitively, elites with high betweenness centrality act as brokers who
+connect otherwise separated groups; they are indispensable for coordination
+but also occupy structurally powerful positions. In the empirical analysis
+we use a normalized version of $C_B(i)$ to facilitate interpretation, and we
+separately measure ties to the ruler's inner circle.
+
+% 中文对照（可选）
+% 核心解释变量为精英在组织网络中的介数中心性 (betweenness centrality)：
+% 衡量该精英作为“桥梁”连接不同群体的程度。介数中心性越高，越善于协调
+% 集体行动，同时也占据结构性权力位置。

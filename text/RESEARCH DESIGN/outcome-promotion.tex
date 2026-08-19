@@ -1,0 +1,31 @@
+% =============================================================================
+%  text/RESEARCH DESIGN/outcome-promotion.tex
+%  Outcome 1: promotion and state-building. Demonstrates an equation.
+%  结果变量一：晋升与国家建设。
+% =============================================================================
+
+Our first outcome measures career advancement and contributions to
+state-building. Career advancement is coded from official position records
+using a standard rank scale. State-building is measured by the elite's
+appointments to positions responsible for constructing state institutions
+(fiscal administration, public services, and bureaucratic agencies), weighted
+by the importance of each post.
+
+% 中文对照（可选）
+% 第一个结果变量衡量职务晋升与国家建设贡献：晋升依据官方职位记录编码；
+% 国家建设贡献以精英在财政、公共服务与行政机构等关键职位上的任职衡量。
+
+We estimate the following specification using OLS:
+
+\begin{equation}
+Promotion_i = \alpha + \beta \, Centrality_i + \mu_j + \mathbf{X}_i'
+\boldsymbol{\gamma} + \varepsilon_i ,
+\label{eq:promotion}
+\end{equation}
+
+where $Promotion_i$ is the outcome for elite $i$, $Centrality_i$ is the
+network centrality measure defined in equation~\eqref{eq:betweenness},
+$\mu_j$ are fixed effects for the elite's origin province $j$, $\mathbf{X}_i$
+is a vector of controls (year of entry into politics, organizational
+experience, and education), and standard errors are clustered at the province
+level.

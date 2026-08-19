@@ -1,0 +1,18 @@
+% =============================================================================
+%  text/APPENDIX/figures.tex
+%  Appendix figures. Two workflows are demonstrated:
+%    1) A compiled PDF placed in pics/ and included with \includegraphics.
+%    2) A standalone TikZ source in pic-tex/ compiled separately to PDF.
+%  附录图片：演示两种图片工作流（预编译 PDF 与 TikZ 独立编译）。
+% =============================================================================
+
+% ---- Workflow 1: pre-compiled PDF in pics/ ----
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{example-figure.pdf}
+  \caption{Marginal Benefit Dynamics (Placeholder Figure)}
+  \label{fig:appendix-figure-1}
+\end{figure}
+
+% ---- Workflow 2: TikZ source compiled to PDF in pic-tex/ ----
+\input{pic-tex/example-tikz/example-tikz}

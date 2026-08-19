@@ -1,29 +1,40 @@
-# LaTeX 编译临时文件
+# LaTeX build artifacts
 *.aux
-*.bbl
-*.bcf
-*.blg
-*.fdb_latexmk
-*.fls
 *.log
 *.out
-*.run.xml
-*.synctex.gz
 *.toc
 *.lof
 *.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
 *.nav
 *.snm
 *.vrb
-*.xdv
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.acn
+*.acr
+*.alg
+*.brf
 
-# 编辑器/系统文件
+# Editor / OS
+.vscode/
+.idea/
+*.swp
 .DS_Store
 Thumbs.db
-.idea/
-.vscode/
-*.swp
-*~
 
-# 其他
-*.bak
+# Temp check files
+compile1.txt
+compile2.txt
+compile3.txt
+pdfcheck.txt
