@@ -1,43 +1,30 @@
-﻿# Political Science LaTeX Template (English–Chinese Bilingual)
+# Social Science LaTeX Template
 
-A clean, reproducible LaTeX template for political science manuscripts,
-derived from a real working paper project. English-first, with full Chinese
-(CJK) support. Compiles with **XeLaTeX + BibTeX**.
+A clean, reproducible **XeLaTeX** template for social science papers —
+built for journals that want professional typesetting without the pain.
 
-中文政治学论文 LaTeX 模板（英文为主、中文为辅，XeLaTeX + xeCJK 编译）。
+**English-first, Chinese-ready.** Times-like fonts, publication-quality
+tables, TikZ figures, author–year citations — all in one drop-in skeleton.
 
-## Features
+---
 
-- **Bilingual typesetting** — English main text with optional Chinese
-  paragraphs, abstract, and comments (XeLaTeX + `xeCJK`).
-- **Times-like fonts** — `newtxtext` / `newtxmath` for text and math.
-- **Publication-quality tables** — `booktabs`, `threeparttable`, `makecell`,
-  `adjustbox` (auto-fit wide tables).
-- **Figures with a reproducible workflow** — the standalone TikZ source
-  and its compiled PDF live side by side in `figures/` with the same file
-  name, and are included directly with `\includegraphics`.
-- **Author–year citations** — `natbib` with a Harvard style
-  (`aeaown.bst`, AEA style).
-- **Math & theorems** — `amsmath`, `amssymb`, `amsthm` environments
-  (theorem, lemma, proposition, assumption, hypothesis, …).
-- **Appendix support** — table/figure numbering restarts with `B`/`A`
-  prefixes.
-- **Cross-platform CJK fonts** — auto-selects SimSun/SimHei (Windows),
-  Noto CJK (macOS/Linux), with fake-bold for Chinese bold text.
+## ✨ Highlights
 
-## Requirements
+- **Professional layout** — Times (`newtxtext`/`newtxmath`), 1-inch margins,
+  1.35 line spacing, standard 12pt manuscript format
+- **Bilingual-ready** — full CJK support via `xeCJK`; English first,
+  Chinese paragraphs whenever you need them (auto-detects system fonts:
+  SimSun on Windows, Noto CJK on macOS/Linux)
+- **Journal-style tables** — `booktabs` + `threeparttable` + `makecell`,
+  with auto-fitting wide tables (`adjustbox`)
+- **Reproducible figures** — every figure is a standalone TikZ source that
+  compiles to a PDF; regenerate anytime, no hand-edited images
+- **Harvard citations** — `natbib` + AEA-style `.bst`; add entries to one
+  `references.bib` (UTF-8, Chinese entries supported)
+- **Organized by section** — one file per section under `text/`; tables and
+  figures in their own folders; appendix numbering handled for you
 
-- A TeX distribution with **XeLaTeX**: TeX Live (macOS/Linux) or MiKTeX
-  (Windows).
-- A CJK font installed on your system:
-  - Windows: SimSun / SimHei / FangSong (built in)
-  - macOS: Songti SC / Heiti SC (built in), or install Noto CJK
-  - Linux: `fonts-noto-cjk` package
-- `bibtex` (included in all TeX distributions).
-
-## Quick start
-
-### Compile from the command line
+## 🚀 Quick start
 
 ```bash
 xelatex main.tex
@@ -46,87 +33,43 @@ xelatex main.tex
 xelatex main.tex
 ```
 
-or, if you have `latexmk`:
+Or with `latexmk`:
 
 ```bash
 latexmk -xelatex main.tex
 ```
 
-### Overleaf
+**Overleaf:** upload as a zip → set compiler to **XeLaTeX** → done.
 
-1. New project → Upload → upload this folder as a zip.
-2. Set the compiler to **XeLaTeX** (Menu → Compiler → XeLaTeX).
-3. If the main file is not auto-detected, set **main.tex** as the root file.
-4. If Chinese fonts are missing on Overleaf, install/select a CJK font
-   (Overleaf offers Noto Serif CJK SC, FandolSong, etc.). You can hard-code
-   the font in `A_PreambleSettings.tex`.
+> A compiled preview is included as [`main.pdf`](main.pdf).
 
-## Project structure
+## 📁 Structure
 
 ```
 .
-├── main.tex                     # root file: title, structure, appendix
-├── A_PreambleSettings.tex       # global preamble (fonts, margins, tables, math, citations)
-├── aeaown.bst                   # Harvard (author–year) bibliography style
-├── references.bib               # bibliography database (UTF-8; Chinese OK)
-├── latexmkrc                    # latexmk config (xelatex + bibtex)
-├── text/                        # section files
-│   ├── abstract.tex
-│   ├── introduction.tex
-│   ├── conclusion.tex
-│   ├── THE ARGUMENT/            # theory sections
-│   ├── HISTORICAL BACKGROUND/   # background sections
-│   ├── RESEARCH DESIGN/         # data & methods sections
-│   ├── RESULTS/                 # results & robustness sections
-│   └── APPENDIX/                # appendix tables/figures lists
-├── tables/                      # table files (booktabs + threeparttable)
-└── figures/                     # figure files: TikZ source + compiled
-    ├── example-figure.tex       #   PDF side by side (same file name)
-    └── example-figure.pdf
+├── main.tex                 # root: title, sections, appendix
+├── A_PreambleSettings.tex   # one place for all global settings
+├── references.bib           # bibliography (UTF-8, Chinese OK)
+├── aeaown.bst               # Harvard (author–year) style
+├── text/                    # one file per section
+├── tables/                  # table files
+└── figures/                 # TikZ source + compiled PDF, same name
 ```
 
-## How to customize
+## ✏️ Make it yours
 
-1. **Title & authors** — edit the `\title{...}` / `\author{...}` block in
-   `main.tex`.
-2. **Sections** — edit the files under `text/`; add/remove `\section` /
-   `\subsection` entries in `main.tex` and keep one file per section.
-3. **Tables** — put table files in `tables/` and `\input` them from
-   `text/APPENDIX/tables.tex` (or directly in a section).
-4. **Figures** — put the standalone TikZ source and its compiled PDF side
-   by side in `figures/` with the same file name (e.g.,
-   `figures/my-figure.tex` → `figures/my-figure.pdf`), and include it with
-   `\includegraphics{my-figure.pdf}` (`\graphicspath` is set to `{figures/}`).
-   Figures produced by external software (Stata/R/Python exports,
-   screenshots) need no source file — just drop the PDF in `figures/`.
-5. **CJK fonts** — edit the font block at the top of
-   `A_PreambleSettings.tex`.
-6. **Bibliography** — add entries to `references.bib` and cite with
-   `\citep{key}` / `\citet{key}`.
+1. **Title & authors** — edit `\title{...}` / `\author{...}` in `main.tex`
+2. **Content** — replace the placeholder files under `text/`
+3. **Tables** — drop files in `tables/`, `\input` them where needed
+4. **Figures** — add `figures/my-figure.tex`, compile to
+   `my-figure.pdf`, include with `\includegraphics{my-figure.pdf}`
+5. **Fonts** — switch CJK fonts in `A_PreambleSettings.tex`
 
-## Notes / tips
+## 📄 License
 
-- The placeholder content in `text/`, `tables/`, and `figures/` is
-  intentionally generic — replace it with your own research.
-- Paragraph indentation is set to `2em` (Chinese convention) in `main.tex`.
-  For no-indent + vertical spacing style, uncomment `parskip` in
-  `A_PreambleSettings.tex` and remove the `\setlength{\parindent}{2em}` line.
-- `newtxtext` sets `\defaultfontfeatures{Extension=.otf,...}` which can leak
-  into xeCJK's deferred font loads on some systems; the template resets it
-  with `\defaultfontfeatures{}` right after loading (see
-  `A_PreambleSettings.tex`).
-- `main.pdf` in the repository is a compiled preview of the template.
-
-## License
-
-MIT — see [LICENSE](LICENSE). Feel free to use, modify, and redistribute.
+MIT — use it, change it, ship it.
 
 ---
 
-### 中文说明
-
-本模板由实际论文项目脱敏整理而来，保留了完整的工程结构（分节文件、表格、
-TikZ 图形、参考文献），去除了所有研究内容与个人信息，可直接作为新论文的
-起点。编译方式见上文；所有占位内容均标注了 "Placeholder / 占位" 提示，
-请替换为你自己的内容。
-
+*Made for researchers who want to spend time on the science,
+not the typesetting.*
