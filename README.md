@@ -13,9 +13,9 @@ derived from a real working paper project. English-first, with full Chinese
 - **Times-like fonts** — `newtxtext` / `newtxmath` for text and math.
 - **Publication-quality tables** — `booktabs`, `threeparttable`, `makecell`,
   `adjustbox` (auto-fit wide tables).
-- **Figures with a reproducible workflow** — every figure lives in its own
-  subfolder under `figures/` (standalone TikZ source + compiled PDF, same
-  name), and is included directly with `\includegraphics`.
+- **Figures with a reproducible workflow** — the standalone TikZ source
+  and its compiled PDF live side by side in `figures/` with the same file
+  name, and are included directly with `\includegraphics`.
 - **Author–year citations** — `natbib` with a Harvard style
   (`aeaown.bst`, AEA style).
 - **Math & theorems** — `amsmath`, `amssymb`, `amsthm` environments
@@ -80,10 +80,9 @@ latexmk -xelatex main.tex
 │   ├── RESULTS/                 # results & robustness sections
 │   └── APPENDIX/                # appendix tables/figures lists
 ├── tables/                      # table files (booktabs + threeparttable)
-└── figures/                     # figure files: one subfolder per figure,
-    └── example-figure/          #   containing the standalone TikZ source
-        ├── example-figure.tex   #   and its compiled PDF (same name)
-        └── example-figure.pdf
+└── figures/                     # figure files: TikZ source + compiled
+    ├── example-figure.tex       #   PDF side by side (same file name)
+    └── example-figure.pdf
 ```
 
 ## How to customize
@@ -94,13 +93,12 @@ latexmk -xelatex main.tex
    `\subsection` entries in `main.tex` and keep one file per section.
 3. **Tables** — put table files in `tables/` and `\input` them from
    `text/APPENDIX/tables.tex` (or directly in a section).
-4. **Figures** — every figure lives in its own subfolder under `figures/`
-   (e.g., `figures/my-figure/`). Put a standalone TikZ source
-`my-figure.tex`
-   there, compile it to `my-figure.pdf` (same name), and include it with
-   `\includegraphics{my-figure/my-figure.pdf}`. Figures produced by external
-   software (Stata/R/Python exports, screenshots) need no source file — just
-   drop the PDF in the subfolder.
+4. **Figures** — put the standalone TikZ source and its compiled PDF side
+   by side in `figures/` with the same file name (e.g.,
+   `figures/my-figure.tex` → `figures/my-figure.pdf`), and include it with
+   `\includegraphics{my-figure.pdf}` (`\graphicspath` is set to `{figures/}`).
+   Figures produced by external software (Stata/R/Python exports,
+   screenshots) need no source file — just drop the PDF in `figures/`.
 5. **CJK fonts** — edit the font block at the top of
    `A_PreambleSettings.tex`.
 6. **Bibliography** — add entries to `references.bib` and cite with
