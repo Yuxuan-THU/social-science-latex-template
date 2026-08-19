@@ -1,14 +1,14 @@
 % =============================================================================
-%  tables/table-purge.tex
-%  Example regression table (placeholders -- replace all numbers with your
-%  own estimates). Demonstrates: booktabs, threeparttable, makecell, adjustbox.
+%  tables/table-main-1.tex
+%  Example regression table (placeholder numbers). Demonstrates: booktabs,
+%  threeparttable, makecell, adjustbox.
 %  回归表示例（所有数字均为占位符，请替换为你的估计结果）。
 % =============================================================================
 
 \begin{table}[htbp]
   \centering
-  \caption{Suppression and Network Centrality (Placeholder Estimates)}
-  \label{tab:main-purge}
+  \caption{Outcome and Key Variable (Placeholder Estimates)}
+  \label{tab:main-1}
 
   \begin{adjustbox}{max width=\textwidth}
   \begin{threeparttable}
@@ -21,36 +21,36 @@
     \toprule[\heavyrulewidth]
     & (1) & (2) & (3) & (4) \\
     \midrule
-    \makecell[l]{Network centrality} &
-    \makecell{0.248$^{***}$ \\ (0.043)} &
-    \makecell{0.291$^{***}$ \\ (0.049)} &
-    \makecell{0.218$^{***}$ \\ (0.054)} &
-    \makecell{0.260$^{***}$ \\ (0.071)} \\
+    \makecell[l]{Key variable} &
+    \makecell{0.131$^{***}$ \\ (0.025)} &
+    \makecell{0.152$^{***}$ \\ (0.039)} &
+    \makecell{0.162$^{**}$ \\ (0.051)} &
+    \makecell{0.112 \\ (0.083)} \\
     \addlinespace
-    \makecell[l]{Year of entry} &
+    \makecell[l]{Control 1} &
     &
     &
-    \makecell{-0.037$^{*}$ \\ (0.017)} &
-    \makecell{-0.041$^{**}$ \\ (0.016)} \\
+    \makecell{0.019 \\ (0.015)} &
+    \makecell{0.023$^{*}$ \\ (0.012)} \\
     \addlinespace
-    \makecell[l]{Organizational experience} &
+    \makecell[l]{Control 2} &
     &
-    \makecell{0.071 \\ (0.062)} &
-    \makecell{0.064 \\ (0.058)} &
-    \makecell{0.069 \\ (0.061)} \\
+    \makecell{0.041$^{*}$ \\ (0.022)} &
+    \makecell{0.038 \\ (0.027)} &
+    \makecell{0.033 \\ (0.029)} \\
     \addlinespace
-    Province fixed effects & & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+    Group fixed effects & & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
     Time fixed effects & & & & $\checkmark$ \\
     \addlinespace
     Observations & 1,502 & 1,502 & 1,467 & 1,467 \\
-    R$^2$ & .118 & .201 & .244 & .263 \\
+    R$^2$ & .092 & .168 & .201 & .236 \\
     \bottomrule[\heavyrulewidth]
   \end{tabular}
 
   \begin{tablenotes}
     \footnotesize
     \item \textit{Note:} PLACEHOLDER numbers. Replace with your own
-    estimates. Robust standard errors clustered by province are in
+    estimates. Robust standard errors clustered by group are in
     parentheses. \\
     \item $^{+}$ $p < .10$; $^{*}$ $p < .05$; $^{**}$ $p < .01$; $^{***}$ $p < .001$.
   \end{tablenotes}

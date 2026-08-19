@@ -1,0 +1,34 @@
+% =============================================================================
+%  text/THE ARGUMENT/part-3.tex
+%  Demonstrates a 2x2 table with booktabs. The content is generic and
+%  unrelated to any research topic -- replace it with your own typology.
+%  演示 2x2 分类表（三线表）；内容为通用示例，请替换。
+% =============================================================================
+
+This subsection demonstrates how to typeset a two-by-two table with
+\texttt{booktabs} and \texttt{threeparttable} (see Table~\ref{tab:example-2x2}).
+The entries below are generic placeholders.
+
+% 表 1：2x2 分类表示例（booktabs 三线表）
+\begin{table}[htbp]
+  \centering
+  \caption{A Generic Two-by-Two Classification}
+  \label{tab:example-2x2}
+  \begin{tabular}{p{3.2cm} p{4.6cm} p{4.6cm}}
+    \toprule
+    & \textbf{Attribute C present} & \textbf{Attribute C absent} \\
+    \midrule
+    \textbf{Attribute A present} & Cell 1 & Cell 2 \\
+    \addlinespace
+    \textbf{Attribute A absent}  & Cell 3 & Cell 4 \\
+    \bottomrule
+  \end{tabular}
+  \begin{tablenotes}
+    \footnotesize
+    \item \textit{Note:} Placeholder content demonstrating the
+    \texttt{booktabs} + \texttt{threeparttable} table format. Replace the
+    entries with your own classification.
+  \end{tablenotes}
+\end{table}
+
+This is the end of the third placeholder subsection.

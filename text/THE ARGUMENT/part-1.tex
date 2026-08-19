@@ -1,0 +1,33 @@
+% =============================================================================
+%  text/THE ARGUMENT/part-1.tex
+%  Demonstrates theorem-like environments (assumption, proposition,
+%  hypothesis). The statements below are generic math/logic examples and are
+%  unrelated to any research topic -- replace them with your own statements.
+%  演示假设、命题、假设（hypothesis）等环境；以下为通用数学示例，请替换。
+% =============================================================================
+
+This subsection demonstrates the theorem-like environments provided by the
+template: \texttt{theorem}, \texttt{lemma}, \texttt{proposition},
+\texttt{corollary}, \texttt{assumption}, and \texttt{hypothesis}. The
+examples below are intentionally generic.
+
+\begin{assumption}
+All sets considered below are finite.
+\end{assumption}
+
+\begin{proposition}
+For any two sets $A$ and $B$,
+\[
+|A \cup B| = |A| + |B| - |A \cap B|.
+\]
+\end{proposition}
+
+\begin{hypothesis}[Example hypothesis]
+The two statements below are logically equivalent:
+\[
+(A \subseteq B) \iff (A \cap B = A).
+\]
+\label{hyp:example}
+\end{hypothesis}
+
+Hypotheses can be numbered and referenced, as in Hypothesis~\ref{hyp:example}.

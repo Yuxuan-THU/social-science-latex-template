@@ -1,0 +1,33 @@
+% =============================================================================
+%  text/THE ARGUMENT/part-2.tex
+%  Demonstrates equation typesetting. The equations below are generic
+%  optimization/regression examples unrelated to any research topic.
+%  演示公式排版；以下为通用的优化/回归示例，与任何研究主题无关。
+% =============================================================================
+
+This subsection demonstrates how to typeset display equations with
+\texttt{amsmath}. Numbered equations can be cross-referenced, as in
+equation~\eqref{eq:example-1}.
+
+\begin{equation}
+\max_{x} \; f(x) \quad \text{subject to} \quad g(x) \leq 0,
+\label{eq:example-1}
+\end{equation}
+
+where $f$ is a scalar objective and $g$ is a constraint function. A
+piecewise definition is typeset with the \texttt{cases} environment:
+
+\begin{equation}
+h(x) =
+\begin{cases}
+1, & \text{if } x > 0;\\
+0, & \text{if } x = 0;\\
+-1, & \text{if } x < 0.
+\end{cases}
+\label{eq:example-2}
+\end{equation}
+
+% 中文对照（可选）
+% 式 (1) 是一个一般形式的优化问题；式 (2) 演示分段函数的排版。
+Equations~\eqref{eq:example-1} and \eqref{eq:example-2} illustrate the
+basic tools; replace them with your own specifications.
