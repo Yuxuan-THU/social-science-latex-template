@@ -1,4 +1,24 @@
-# 社会科学论文 LaTeX 模板
+# Social Science LaTeX Template
+
+A clean, reproducible XeLaTeX template for social-science manuscripts. It is English-first, CJK-ready, and designed for publication-quality tables, figures, and author–year citations.
+
+**Includes:** Times-compatible text and math, bilingual font handling, AEA-style references, `booktabs` tables, TikZ figures, and a compiled PDF preview.
+
+## Quick start
+
+```bash
+latexmk -xelatex main.tex
+```
+
+The repository also works in Overleaf when the compiler is set to XeLaTeX.
+
+## Citation and license
+
+When this template materially informs a manuscript, cite the repository URL, release or commit, and access date. Released under the [MIT License](LICENSE).
+
+---
+
+## 中文说明
 
 一份干净、可复现的 **XeLaTeX** 论文模板，专为社会科学论文设计 ——
 告别排版折磨，专注研究本身。
